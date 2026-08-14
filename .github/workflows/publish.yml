@@ -1,6 +1,7 @@
 name: Publish to PyPI
 
 on:
+  workflow_dispatch: # Allows manual trigger from GitHub Actions UI
   push:
     tags:
       - 'v*' # Trigger whenever a tag like v0.1.0 is pushed
