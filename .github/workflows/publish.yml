@@ -1,0 +1,36 @@
+name: Publish to PyPI
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger whenever a tag like v0.1.0 is pushed
+
+jobs:
+  pypi-publish:
+    name: Build and Upload to PyPI
+    runs-on: ubuntu-latest
+    
+    # 1. Matches the environment set on PyPI
+    environment:
+      name: pypi
+      url: https://pypi.org/p/electrolyzermatching
+
+    # 2. REQUIRED for Trusted Publishing (OIDC authentication)
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Build package
+        run: uv build
+
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
