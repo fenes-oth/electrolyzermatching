@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "electrolyzermatching"
+version = "0.1.0"
+description = "Matching and modeling algorithms for electrolyzer systems"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Huy Hoang Nguyen", email = "huyhoang.mike@gmail.com" }
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/fenes-oth/electrolyzermatching"
+Repository = "https://github.com/fenes-oth/electrolyzermatching"
+Issues = "https://github.com/fenes-oth/electrolyzermatching/issues"
