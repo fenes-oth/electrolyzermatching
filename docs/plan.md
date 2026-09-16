@@ -2,7 +2,7 @@
 
 ## Data distribution decision
 
-A xx MB `powerplants.csv`-style file is technically acceptable, but it should not be committed to the source package by default. A large tracked file increases clone size, slows package development, and couples data releases to code releases.
+A 20 MB `powerplants.csv`-style file is technically acceptable, but it should not be committed to the source package by default. A large tracked file increases clone size, slows package development, and couples data releases to code releases.
 
 The project will use a hybrid approach:
 
@@ -12,6 +12,8 @@ The project will use a hybrid approach:
 - Load remote artifacts through `electrolyzermatching.electrolyzers()` and cache them under the platform user cache directory.
 - Support an explicit local path for offline and fully reproducible analyses.
 - Store a manifest beside each artifact with schema version, source versions, generation timestamp, row count, and checksums.
+
+For version 0.2.0, the supplied small `electrolyzers.csv` is committed at the repository root and is loaded online from the matching Git tag. This keeps the first release simple. Larger future datasets should move to release assets or Zenodo without changing the `electrolyzers()` API.
 
 A checked-in 20 MB CSV can be acceptable for an early research prototype if the data is stable and licensing permits it. It should remain outside the Python wheel and should be moved to release assets when the dataset or contributor base grows.
 
