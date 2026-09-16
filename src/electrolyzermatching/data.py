@@ -11,15 +11,15 @@ import pandas as pd
 from platformdirs import user_cache_dir
 
 DEFAULT_DATA_URL = (
-    "https://github.com/fenes-oth/electrolyzermatching/releases/download/"
-    "data-v{version}/electrolyzers.csv"
+    "https://raw.githubusercontent.com/fenes-oth/electrolyzermatching/"
+    "v{version}/electrolyzers.csv"
 )
 
 
 def electrolyzers(
     *,
     from_url: bool = True,
-    version: str = "0.1.0",
+    version: str = "0.2.0",
     path: str | Path | None = None,
     url: str | None = None,
     cache: bool = True,
